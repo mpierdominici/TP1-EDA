@@ -1,19 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+//****************************************
+// Bibliteca para parseo de la linea de comando
+//
+//
+//
+//
+//
+//Version: 12/03/2017
+//Git: https://github.com/mpierdominici/TP1-EDA.git
+//****************************************
+
+
+
+
+
+
 
 #include <stdio.h>
 #include <stdint.h>
 
 #define ERROR 0
 #define NO_ERROR 1
-#define PARSER_RETURN_ERROR -1
+#define PARSER_RETURN_ERROR -1 //valor que devueleve el parser en caso que suceda un error
 #define MIN_ARGC 2 //cantidad  minima de argumentos a recivir por cmd
 #define TRUE 1
 #define FALSE 0
-#define KEY '-'
+#define KEY '-'//caracter previo al key
 
 typedef int (*pCallback) (char *, char*, void *);
 
@@ -25,13 +37,13 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
 {
    
     uint8_t end_runing=FALSE;
-    int counter_string = TRUE;//contador que apunta al string enviado por consola deseado, inicializado en 1(string 0 nombre del programa)
-    int return_value = TRUE;
+    int16_t counter_string = TRUE;//contador que apunta al string enviado por consola deseado, inicializado en 1(string 0 nombre del programa)
+    int16_t return_value = TRUE;//variable que contiene lo que devuelve la funcion parseCmdLine
+    uint8_t * key =NULL;//variable que almacena el key
     
-    uint8_t * key =NULL;
-    if (argc>MIN_ARGC)
+    if (argc>MIN_ARGC)//evaluo si hay sufucientes argumentos
     {
-        return_value = PARSER_RETURN_ERROR;
+        return_value = PARSER_RETURN_ERROR;//en caso de que no los haya, detengo la ejecucion y devuelvo error
     }
     else
     {
