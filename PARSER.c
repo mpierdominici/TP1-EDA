@@ -26,6 +26,7 @@
 #define TRUE 1
 #define FALSE 0
 #define KEY '-'//caracter previo al key
+#define TERMINADOR '\0' 
 
 typedef int (*pCallback) (char *, char*, void *);
 
@@ -49,12 +50,29 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
     {
         while(!end_runing)
         {
-            if (((*(argv[counter_string]))==KEY)&&((*((argv[counter_string])+1))!='\0'))
+            if (((*(argv[counter_string]))==KEY)&&((*((argv[counter_string])+1))!=TERMINADOR ))//evaluo si recivo un key
             {
-                key=(uint8_t *)((argv[counter_string])+1);
-                counter_string++;
-               // if() ver si hay una opcion y llamar al calback
-            }else if ((*(argv[counter_string]))!='\0')
+                key=(uint8_t *)((argv[counter_string])+1);//almaceno el puntero a en key para su posterior uso
+                counter_string++;//incremento el contador de string para ver cual es el proximo string
+                if((*(argv[counter_string]))!=TERMINADOR )//evaluo si hay string despues del key
+                {
+                    if (((*p)(key,argv[counter_string],userData))!=ERROR)
+                    {
+                      counter_string++;  
+                    }
+                    else
+                    {
+                        end_runing=TRUE;
+                        return_value=PARSER_RETURN_ERROR;
+                    }
+                       
+                }
+                else
+                {
+                    end_runing=TRUE;
+                    return_value=PARSER_RETURN_ERROR;  
+                }
+            }else if ((*(argv[counter_string]))!=TERMINADOR )
             {
                 
             }
