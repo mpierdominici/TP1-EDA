@@ -1,7 +1,7 @@
 
 #include <stdio.h>
+#include"CallBack.h"
 
-int parseCallback(char *key, char *value, void *userData);
 #define WORD_SIZE   30
 
 ////////////////////////////////////////// parseCallback /////////////////////////////////////////////

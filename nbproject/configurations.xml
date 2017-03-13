@@ -4,6 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>CallBack.h</itemPath>
+      <itemPath>PARSER.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -38,9 +40,13 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="CallBack.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Callback.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="PARSER.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="PARSER.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -65,9 +71,13 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="CallBack.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Callback.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="PARSER.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="PARSER.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>

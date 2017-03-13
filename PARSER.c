@@ -18,19 +18,17 @@
 
 #include <stdio.h>
 #include <stdint.h>
-
+#include "PARSER.h"
 #define ERROR 0
 #define NO_ERROR 1
-#define PARSER_RETURN_ERROR -1 //valor que devueleve el parser en caso que suceda un error
+
 #define MIN_ARGC 2 //cantidad  minima de argumentos a recivir por cmd
 #define TRUE 1
 #define FALSE 0
 #define KEY '-'//caracter previo al key
 #define TERMINADOR '\0' 
 
-typedef int (*pCallback) (char *, char*, void *);
 
-int parseCmdLine(int argc, char *argv[], pCallback p, void *userData); 
 
 
 
