@@ -48,13 +48,15 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
     {
         while(!end_runing)
         {
-            if ((counter_string<argc)&&((*(argv[counter_string]))==KEY)&&((*((argv[counter_string])+1))!=TERMINADOR ))//evaluo si recivo un key
+            if ((counter_string<argc)&&((*(argv[counter_string]))==KEY))//evaluo si recivo un key
             {
-                key=(uint8_t *)((argv[counter_string])+1);//almaceno el puntero a en key para su posterior uso
+                if(((*((argv[counter_string])+1))!=TERMINADOR ))
+                {
+                     key=(uint8_t *)((argv[counter_string])+1);//almaceno el puntero a en key para su posterior uso
                 counter_string++;//incremento el contador de string para ver cual es el proximo string
                 if((*(argv[counter_string]))!=TERMINADOR )//evaluo si hay string despues del key
                 {
-                    if (((*p)(key,argv[counter_string],userData))!=ERROR)//llamo al calback con los parametros obtenidos, y evaluo si devuelve error
+                    if ((counter_string<argc)&&(((*p)(key,argv[counter_string],userData))!=ERROR))//llamo al calback con los parametros obtenidos, y evaluo si devuelve error
                     {
                         
                         contador_opciones_parametros++;
@@ -65,6 +67,8 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
                         end_runing=TRUE;
                         return_value=PARSER_RETURN_ERROR;
                     }
+                    
+                    //if ((counter_string<argc)&&((*(argv[counter_string]))==TERMINADOR ))
                        
                 }
                 else
@@ -72,6 +76,12 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
                     end_runing=TRUE;
                     return_value=PARSER_RETURN_ERROR;  
                 }
+                }else
+                {
+                    end_runing=TRUE;
+                    return_value=PARSER_RETURN_ERROR;  
+                }
+               
             }
             else if ((counter_string<argc)&&((*(argv[counter_string]))!=TERMINADOR ))
             {

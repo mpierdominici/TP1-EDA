@@ -24,7 +24,7 @@ int parse(char *key, char *value, void *userData);
  
 int main(int argc, char** argv) {
     
-  char  *args[] ={"nombre","-a",""};
+  char  *args[] ={"nombre","-a","56"};
   void * h =NULL;  
   int cantidadDeArgumentos = 3;
  
