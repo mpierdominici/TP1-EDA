@@ -40,7 +40,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
     int16_t return_value = TRUE;//variable que contiene lo que devuelve la funcion parseCmdLine
     uint8_t * key =NULL;//variable que almacena el key
     int16_t contador_opciones_parametros = FALSE;//contador que almacena la cantidad de opciones y parametros correctamanete ingresados
-    if (argc>MIN_ARGC)//evaluo si hay sufucientes argumentos
+    if (argc<MIN_ARGC)//evaluo si hay sufucientes argumentos
     {
         return_value = PARSER_RETURN_ERROR;//en caso de que no los haya, detengo la ejecucion y devuelvo error
     }
@@ -48,7 +48,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
     {
         while(!end_runing)
         {
-            if (((*(argv[counter_string]))==KEY)&&((*((argv[counter_string])+1))!=TERMINADOR )&&(counter_string<argc))//evaluo si recivo un key
+            if ((counter_string<argc)&&((*(argv[counter_string]))==KEY)&&((*((argv[counter_string])+1))!=TERMINADOR ))//evaluo si recivo un key
             {
                 key=(uint8_t *)((argv[counter_string])+1);//almaceno el puntero a en key para su posterior uso
                 counter_string++;//incremento el contador de string para ver cual es el proximo string
@@ -73,7 +73,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData)
                     return_value=PARSER_RETURN_ERROR;  
                 }
             }
-            else if (((*(argv[counter_string]))!=TERMINADOR )&&(counter_string<argc))
+            else if ((counter_string<argc)&&((*(argv[counter_string]))!=TERMINADOR ))
             {
                 if (((*p)(NULL,argv[counter_string],userData))!=ERROR)//llamo al calback con los parametros obtenidos, y evaluo si devuelve error
                     {

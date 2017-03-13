@@ -13,12 +13,35 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "PARSER.h"
 
 /*
  * 
  */
+
+
+int parse(char *key, char *value, void *userData);
+ 
 int main(int argc, char** argv) {
+    
+  char  *args[] ={"nombre","-","hola"};
+  void * h =NULL;  
+  int cantidadDeArgumentos = 3;
+ 
+  
+  if((parseCmdLine(cantidadDeArgumentos, args,parse, h))==-1)
+  {
+      printf("error");
+  }
+    
+    
+    
+    
 
     return (EXIT_SUCCESS);
 }
 
+int parse(char *key, char *value, void *userData)
+{
+    return 1;
+}

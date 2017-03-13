@@ -16,7 +16,7 @@
                    projectFiles="true">
       <itemPath>Callback.c</itemPath>
       <itemPath>PARSER.c</itemPath>
-      <itemPath>main.c</itemPath>
+      <itemPath>banco de pruevas.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -48,7 +48,7 @@
       </item>
       <item path="PARSER.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.c" ex="false" tool="0" flavor2="0">
+      <item path="banco de pruevas.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -79,7 +79,7 @@
       </item>
       <item path="PARSER.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.c" ex="false" tool="0" flavor2="0">
+      <item path="banco de pruevas.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

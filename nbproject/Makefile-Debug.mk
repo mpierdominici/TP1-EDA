@@ -37,7 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Callback.o \
 	${OBJECTDIR}/PARSER.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/banco\ de\ pruevas.o
 
 
 # C Compiler Flags
@@ -74,10 +74,11 @@ ${OBJECTDIR}/PARSER.o: PARSER.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PARSER.o PARSER.c
 
-${OBJECTDIR}/main.o: main.c
+.NO_PARALLEL:${OBJECTDIR}/banco\ de\ pruevas.o
+${OBJECTDIR}/banco\ de\ pruevas.o: banco\ de\ pruevas.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/banco\ de\ pruevas.o banco\ de\ pruevas.c
 
 # Subprojects
 .build-subprojects:
